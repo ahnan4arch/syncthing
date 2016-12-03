@@ -75,59 +75,59 @@ func init() {
 	proto.RegisterType((*VersionList)(nil), "db.VersionList")
 	proto.RegisterType((*FileInfoTruncated)(nil), "db.FileInfoTruncated")
 }
-func (m *FileVersion) Marshal() (dAtA []byte, err error) {
+func (m *FileVersion) Marshal() (data []byte, err error) {
 	size := m.ProtoSize()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	data = make([]byte, size)
+	n, err := m.MarshalTo(data)
 	if err != nil {
 		return nil, err
 	}
-	return dAtA[:n], nil
+	return data[:n], nil
 }
 
-func (m *FileVersion) MarshalTo(dAtA []byte) (int, error) {
+func (m *FileVersion) MarshalTo(data []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
-	dAtA[i] = 0xa
+	data[i] = 0xa
 	i++
-	i = encodeVarintStructs(dAtA, i, uint64(m.Version.ProtoSize()))
-	n1, err := m.Version.MarshalTo(dAtA[i:])
+	i = encodeVarintStructs(data, i, uint64(m.Version.ProtoSize()))
+	n1, err := m.Version.MarshalTo(data[i:])
 	if err != nil {
 		return 0, err
 	}
 	i += n1
 	if len(m.Device) > 0 {
-		dAtA[i] = 0x12
+		data[i] = 0x12
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(len(m.Device)))
-		i += copy(dAtA[i:], m.Device)
+		i = encodeVarintStructs(data, i, uint64(len(m.Device)))
+		i += copy(data[i:], m.Device)
 	}
 	return i, nil
 }
 
-func (m *VersionList) Marshal() (dAtA []byte, err error) {
+func (m *VersionList) Marshal() (data []byte, err error) {
 	size := m.ProtoSize()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	data = make([]byte, size)
+	n, err := m.MarshalTo(data)
 	if err != nil {
 		return nil, err
 	}
-	return dAtA[:n], nil
+	return data[:n], nil
 }
 
-func (m *VersionList) MarshalTo(dAtA []byte) (int, error) {
+func (m *VersionList) MarshalTo(data []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Versions) > 0 {
 		for _, msg := range m.Versions {
-			dAtA[i] = 0xa
+			data[i] = 0xa
 			i++
-			i = encodeVarintStructs(dAtA, i, uint64(msg.ProtoSize()))
-			n, err := msg.MarshalTo(dAtA[i:])
+			i = encodeVarintStructs(data, i, uint64(msg.ProtoSize()))
+			n, err := msg.MarshalTo(data[i:])
 			if err != nil {
 				return 0, err
 			}
@@ -137,128 +137,128 @@ func (m *VersionList) MarshalTo(dAtA []byte) (int, error) {
 	return i, nil
 }
 
-func (m *FileInfoTruncated) Marshal() (dAtA []byte, err error) {
+func (m *FileInfoTruncated) Marshal() (data []byte, err error) {
 	size := m.ProtoSize()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	data = make([]byte, size)
+	n, err := m.MarshalTo(data)
 	if err != nil {
 		return nil, err
 	}
-	return dAtA[:n], nil
+	return data[:n], nil
 }
 
-func (m *FileInfoTruncated) MarshalTo(dAtA []byte) (int, error) {
+func (m *FileInfoTruncated) MarshalTo(data []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Name) > 0 {
-		dAtA[i] = 0xa
+		data[i] = 0xa
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+		i = encodeVarintStructs(data, i, uint64(len(m.Name)))
+		i += copy(data[i:], m.Name)
 	}
 	if m.Type != 0 {
-		dAtA[i] = 0x10
+		data[i] = 0x10
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(m.Type))
+		i = encodeVarintStructs(data, i, uint64(m.Type))
 	}
 	if m.Size != 0 {
-		dAtA[i] = 0x18
+		data[i] = 0x18
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(m.Size))
+		i = encodeVarintStructs(data, i, uint64(m.Size))
 	}
 	if m.Permissions != 0 {
-		dAtA[i] = 0x20
+		data[i] = 0x20
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(m.Permissions))
+		i = encodeVarintStructs(data, i, uint64(m.Permissions))
 	}
 	if m.ModifiedS != 0 {
-		dAtA[i] = 0x28
+		data[i] = 0x28
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(m.ModifiedS))
+		i = encodeVarintStructs(data, i, uint64(m.ModifiedS))
 	}
 	if m.Deleted {
-		dAtA[i] = 0x30
+		data[i] = 0x30
 		i++
 		if m.Deleted {
-			dAtA[i] = 1
+			data[i] = 1
 		} else {
-			dAtA[i] = 0
+			data[i] = 0
 		}
 		i++
 	}
 	if m.Invalid {
-		dAtA[i] = 0x38
+		data[i] = 0x38
 		i++
 		if m.Invalid {
-			dAtA[i] = 1
+			data[i] = 1
 		} else {
-			dAtA[i] = 0
+			data[i] = 0
 		}
 		i++
 	}
 	if m.NoPermissions {
-		dAtA[i] = 0x40
+		data[i] = 0x40
 		i++
 		if m.NoPermissions {
-			dAtA[i] = 1
+			data[i] = 1
 		} else {
-			dAtA[i] = 0
+			data[i] = 0
 		}
 		i++
 	}
-	dAtA[i] = 0x4a
+	data[i] = 0x4a
 	i++
-	i = encodeVarintStructs(dAtA, i, uint64(m.Version.ProtoSize()))
-	n2, err := m.Version.MarshalTo(dAtA[i:])
+	i = encodeVarintStructs(data, i, uint64(m.Version.ProtoSize()))
+	n2, err := m.Version.MarshalTo(data[i:])
 	if err != nil {
 		return 0, err
 	}
 	i += n2
 	if m.Sequence != 0 {
-		dAtA[i] = 0x50
+		data[i] = 0x50
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(m.Sequence))
+		i = encodeVarintStructs(data, i, uint64(m.Sequence))
 	}
 	if m.ModifiedNs != 0 {
-		dAtA[i] = 0x58
+		data[i] = 0x58
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(m.ModifiedNs))
+		i = encodeVarintStructs(data, i, uint64(m.ModifiedNs))
 	}
 	if m.ModifiedBy != 0 {
-		dAtA[i] = 0x60
+		data[i] = 0x60
 		i++
-		i = encodeVarintStructs(dAtA, i, uint64(m.ModifiedBy))
+		i = encodeVarintStructs(data, i, uint64(m.ModifiedBy))
 	}
 	return i, nil
 }
 
-func encodeFixed64Structs(dAtA []byte, offset int, v uint64) int {
-	dAtA[offset] = uint8(v)
-	dAtA[offset+1] = uint8(v >> 8)
-	dAtA[offset+2] = uint8(v >> 16)
-	dAtA[offset+3] = uint8(v >> 24)
-	dAtA[offset+4] = uint8(v >> 32)
-	dAtA[offset+5] = uint8(v >> 40)
-	dAtA[offset+6] = uint8(v >> 48)
-	dAtA[offset+7] = uint8(v >> 56)
+func encodeFixed64Structs(data []byte, offset int, v uint64) int {
+	data[offset] = uint8(v)
+	data[offset+1] = uint8(v >> 8)
+	data[offset+2] = uint8(v >> 16)
+	data[offset+3] = uint8(v >> 24)
+	data[offset+4] = uint8(v >> 32)
+	data[offset+5] = uint8(v >> 40)
+	data[offset+6] = uint8(v >> 48)
+	data[offset+7] = uint8(v >> 56)
 	return offset + 8
 }
-func encodeFixed32Structs(dAtA []byte, offset int, v uint32) int {
-	dAtA[offset] = uint8(v)
-	dAtA[offset+1] = uint8(v >> 8)
-	dAtA[offset+2] = uint8(v >> 16)
-	dAtA[offset+3] = uint8(v >> 24)
+func encodeFixed32Structs(data []byte, offset int, v uint32) int {
+	data[offset] = uint8(v)
+	data[offset+1] = uint8(v >> 8)
+	data[offset+2] = uint8(v >> 16)
+	data[offset+3] = uint8(v >> 24)
 	return offset + 4
 }
-func encodeVarintStructs(dAtA []byte, offset int, v uint64) int {
+func encodeVarintStructs(data []byte, offset int, v uint64) int {
 	for v >= 1<<7 {
-		dAtA[offset] = uint8(v&0x7f | 0x80)
+		data[offset] = uint8(v&0x7f | 0x80)
 		v >>= 7
 		offset++
 	}
-	dAtA[offset] = uint8(v)
+	data[offset] = uint8(v)
 	return offset + 1
 }
 func (m *FileVersion) ProtoSize() (n int) {
@@ -340,8 +340,8 @@ func sovStructs(x uint64) (n int) {
 func sozStructs(x uint64) (n int) {
 	return sovStructs(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *FileVersion) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
+func (m *FileVersion) Unmarshal(data []byte) error {
+	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -353,7 +353,7 @@ func (m *FileVersion) Unmarshal(dAtA []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := dAtA[iNdEx]
+			b := data[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -381,7 +381,7 @@ func (m *FileVersion) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -395,7 +395,7 @@ func (m *FileVersion) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if err := m.Version.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.Version.Unmarshal(data[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -411,7 +411,7 @@ func (m *FileVersion) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				byteLen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -425,14 +425,14 @@ func (m *FileVersion) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Device = append(m.Device[:0], dAtA[iNdEx:postIndex]...)
+			m.Device = append(m.Device[:0], data[iNdEx:postIndex]...)
 			if m.Device == nil {
 				m.Device = []byte{}
 			}
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipStructs(dAtA[iNdEx:])
+			skippy, err := skipStructs(data[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -451,8 +451,8 @@ func (m *FileVersion) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *VersionList) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
+func (m *VersionList) Unmarshal(data []byte) error {
+	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -464,7 +464,7 @@ func (m *VersionList) Unmarshal(dAtA []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := dAtA[iNdEx]
+			b := data[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -492,7 +492,7 @@ func (m *VersionList) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -507,13 +507,13 @@ func (m *VersionList) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Versions = append(m.Versions, FileVersion{})
-			if err := m.Versions[len(m.Versions)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.Versions[len(m.Versions)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipStructs(dAtA[iNdEx:])
+			skippy, err := skipStructs(data[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -532,8 +532,8 @@ func (m *VersionList) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
+func (m *FileInfoTruncated) Unmarshal(data []byte) error {
+	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -545,7 +545,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := dAtA[iNdEx]
+			b := data[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -573,7 +573,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -588,7 +588,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Name = string(dAtA[iNdEx:postIndex])
+			m.Name = string(data[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 0 {
@@ -602,7 +602,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				m.Type |= (protocol.FileInfoType(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -621,7 +621,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				m.Size |= (int64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -640,7 +640,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				m.Permissions |= (uint32(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -659,7 +659,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				m.ModifiedS |= (int64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -678,7 +678,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				v |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -698,7 +698,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				v |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -718,7 +718,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				v |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -738,7 +738,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -752,7 +752,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if err := m.Version.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.Version.Unmarshal(data[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -768,7 +768,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				m.Sequence |= (int64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -787,7 +787,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				m.ModifiedNs |= (int32(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -806,7 +806,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				m.ModifiedBy |= (protocol.ShortID(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -815,7 +815,7 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 			}
 		default:
 			iNdEx = preIndex
-			skippy, err := skipStructs(dAtA[iNdEx:])
+			skippy, err := skipStructs(data[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -834,8 +834,8 @@ func (m *FileInfoTruncated) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func skipStructs(dAtA []byte) (n int, err error) {
-	l := len(dAtA)
+func skipStructs(data []byte) (n int, err error) {
+	l := len(data)
 	iNdEx := 0
 	for iNdEx < l {
 		var wire uint64
@@ -846,7 +846,7 @@ func skipStructs(dAtA []byte) (n int, err error) {
 			if iNdEx >= l {
 				return 0, io.ErrUnexpectedEOF
 			}
-			b := dAtA[iNdEx]
+			b := data[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -864,7 +864,7 @@ func skipStructs(dAtA []byte) (n int, err error) {
 					return 0, io.ErrUnexpectedEOF
 				}
 				iNdEx++
-				if dAtA[iNdEx-1] < 0x80 {
+				if data[iNdEx-1] < 0x80 {
 					break
 				}
 			}
@@ -881,7 +881,7 @@ func skipStructs(dAtA []byte) (n int, err error) {
 				if iNdEx >= l {
 					return 0, io.ErrUnexpectedEOF
 				}
-				b := dAtA[iNdEx]
+				b := data[iNdEx]
 				iNdEx++
 				length |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -904,7 +904,7 @@ func skipStructs(dAtA []byte) (n int, err error) {
 					if iNdEx >= l {
 						return 0, io.ErrUnexpectedEOF
 					}
-					b := dAtA[iNdEx]
+					b := data[iNdEx]
 					iNdEx++
 					innerWire |= (uint64(b) & 0x7F) << shift
 					if b < 0x80 {
@@ -915,7 +915,7 @@ func skipStructs(dAtA []byte) (n int, err error) {
 				if innerWireType == 4 {
 					break
 				}
-				next, err := skipStructs(dAtA[start:])
+				next, err := skipStructs(data[start:])
 				if err != nil {
 					return 0, err
 				}
